@@ -4,40 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feliz Día Mamá</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: linear-gradient(to bottom right, pink, lightblue);
-      font-family: Arial, sans-serif;
-      color: #333;
-      text-align: center;
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(120deg, #fce4ec, #f8bbd0, #f48fb1);
     }
+
     .card {
       background: white;
       padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-in-out;
     }
+
     h1 {
       color: #e91e63;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      animation: bounce 2s infinite;
     }
+
+    p {
+      color: #444;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
     img {
       max-width: 250px;
-      border-radius: 15px;
-      margin-top: 15px;
+      border-radius: 20px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #e91e63;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #c2185b;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Corazones animados */
+    .heart {
+      position: absolute;
+      top: -10px;
+      color: red;
+      font-size: 24px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>💖 Feliz día Mamá 💖</h1>
-    <p>Eres la mejor, gracias por todo tu amor y apoyo.</p>
+    <h1>💖 Feliz Día Mamá 💖</h1>
+    <p>Eres la persona más especial de mi vida, gracias por tu amor infinito.</p>
     <img src="https://i.imgur.com/OdL0XPt.jpeg" alt="Flores para mamá">
+    <br>
+    <button onclick="alert('Te amo mamá ❤️')">Haz clic aquí</button>
   </div>
+
+  <script>
+    // Generar corazones animados
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(crearCorazon, 500);
+  </script>
 </body>
 </html>
