@@ -5,16 +5,16 @@
   <title>Video de mamá</title>
   <style>
     * { margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; background: black; }
+    html, body { height: 100%; background: black; overflow: hidden; }
 
-    /* 🎥 Video de fondo */
     #bgVideo {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* 🔹 Mantiene proporción, puede dejar franjas */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* centra el video */
+      height: 100%;   /* el alto siempre ocupa toda la pantalla */
+      width: auto;    /* mantiene la proporción vertical */
+      object-fit: contain;
       background: black;
       z-index: -1;
     }
@@ -24,13 +24,12 @@
       z-index: 1;
       color: white;
       text-align: center;
-      margin-top: 20%;
+      margin-top: 10%;
       font-size: 2em;
     }
   </style>
 </head>
 <body>
-  <!-- 🎥 Video de fondo -->
   <video id="bgVideo" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
     Tu navegador no soporta video.
