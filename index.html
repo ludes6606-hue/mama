@@ -5,7 +5,7 @@
   <title>Video de mamá</title>
   <style>
     * { margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
+    html, body { height: 100%; overflow: hidden; background: black; }
 
     /* 🎥 Video de fondo */
     #bgVideo {
@@ -14,12 +14,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain; /* 🔹 No recorta el video */
-      background: black;   /* 🔹 Si sobran espacios los rellena de negro */
+      object-fit: contain; /* 🔹 Mantiene proporción, puede dejar franjas */
+      background: black;
       z-index: -1;
     }
 
-    /* Texto de ejemplo encima */
     .contenido {
       position: relative;
       z-index: 1;
@@ -32,7 +31,7 @@
 </head>
 <body>
   <!-- 🎥 Video de fondo -->
-  <video id="bgVideo" autoplay muted loop>
+  <video id="bgVideo" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
